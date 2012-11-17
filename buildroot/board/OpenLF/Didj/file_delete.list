@@ -1,0 +1,2 @@
+etc/init.d/S05avahi-setup.sh
+etc/init.d/S40network

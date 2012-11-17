@@ -1,0 +1,30 @@
+#!/bin/sh
+#
+# Start the network....
+#
+
+case "$1" in
+  start)
+ 	echo "Starting usb ether..."
+
+
+    host_addr="80:38:FD:83:13:37"
+    dev_addr="80:38:FD:80:13:37"
+
+	modprobe g_ether host_addr=$host_addr dev_addr=$dev_addr
+	;;
+  stop)
+	echo -n "Stopping network..."
+	/sbin/ifconfig usb0 down
+	modprobe -r g_ether
+	;;
+  restart|reload)
+	"$0" stop
+	"$0" start
+	;;
+  *)
+	echo "Usage: $0 {start|stop|restart}"
+	exit 1
+esac
+
+exit $?

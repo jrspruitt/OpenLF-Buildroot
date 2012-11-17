@@ -1,0 +1,9 @@
+kernel/drivers/base/firmware_class.ko:
+kernel/drivers/lf1000/lfcart.ko:
+kernel/drivers/lf1000/warm/warm.ko:
+kernel/drivers/usb/gadget/lf1000_udc.ko:
+kernel/drivers/usb/gadget/g_ether.ko: kernel/drivers/usb/gadget/lf1000_udc.ko
+kernel/drivers/usb/gadget/g_file_storage.ko: kernel/drivers/usb/gadget/lf1000_udc.ko
+kernel/arch/arm/oprofile/oprofile.ko:
+kernel/net/wireless/lib80211.ko:
+kernel/lib/crc-ccitt.ko:

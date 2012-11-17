@@ -1,0 +1,64 @@
+#!/bin/sh
+MOUNT_POINT=/mnt/data
+
+case "$1" in
+	start)
+
+		if grep $MOUNT_POINT /proc/mounts > /dev/null; then
+			echo "Data already mounted."
+			exit 0;
+		fi
+
+		if [ ! -e $MOUNT_POINT ]; then
+			echo "Mount point $MOUNT_POINT missing."
+			exit 1
+		fi
+
+		echo "Mounting Data partition."
+
+		ubiattach /dev/ubi_ctrl -m 3
+		if [ $? != 0 ]; then
+			echo "Attaching Data UBI failed."
+			exit 1
+		fi
+
+		mount -t ubifs -o rw ubi1_0 $MOUNT_POINT
+		if [ $? != 0 ]; then
+			echo "Mounting Data failed."
+			exit 1
+		fi
+		;;
+	stop)
+
+		echo "Unmounting Data partition."
+
+		if grep $MOUNT_POUNT /proc/mounts > /dev/null; then 
+			umount $MOUNT_POINT 
+			if [ $? != 0 ]; then
+				echo "Unmounting Data failed."
+				exit 1
+			fi
+
+			if [ -e /sys/class/ubi/ubi1 ]; then
+				ubidetach /dev/ubi_ctrl -d 1
+			fi
+			if [ $? != 0 ]; then
+				echo "Detaching Data UBI failed."
+				exit 1
+			fi
+
+		else
+			echo "Data not mounted."
+		fi
+		;;
+
+	restart)	
+		$0 stop
+		$0 start
+		;;
+	*)
+		echo "Usage: $0 {start|stop|restart}"
+		exit 1
+		;;
+esac
+exit 0

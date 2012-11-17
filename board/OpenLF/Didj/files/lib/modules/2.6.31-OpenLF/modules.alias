@@ -1,0 +1,4 @@
+# Aliases extracted from modules themselves.
+alias platform:lf1000_udc lf1000_udc
+alias i2c:CS43L22 snd_soc_cs43l22
+alias i2c:lfp100-codec snd_soc_lfp100

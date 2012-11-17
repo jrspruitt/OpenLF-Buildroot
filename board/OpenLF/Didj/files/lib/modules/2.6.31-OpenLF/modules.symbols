@@ -1,0 +1,26 @@
+# Aliases for symbols, used by symbol_request().
+alias symbol:request_firmware firmware_class
+alias symbol:lfp100_dai snd_soc_lfp100
+alias symbol:cs43l22_snd_soc_info_volsw_2r snd_soc_cs43l22
+alias symbol:request_firmware_nowait firmware_class
+alias symbol:print_ssid lib80211
+alias symbol:lib80211_register_crypto_ops lib80211
+alias symbol:lib80211_crypt_info_free lib80211
+alias symbol:lib80211_crypt_info_init lib80211
+alias symbol:crc_ccitt crc_ccitt
+alias symbol:usb_gadget_register_driver lf1000_udc
+alias symbol:lib80211_crypt_deinit_handler lib80211
+alias symbol:soc_codec_dev_lfp100 snd_soc_lfp100
+alias symbol:lib80211_unregister_crypto_ops lib80211
+alias symbol:crc_ccitt_table crc_ccitt
+alias symbol:lf1000_i2s_dai snd_soc_lf1000_i2s
+alias symbol:cs43l22_snd_soc_put_volsw_2r snd_soc_cs43l22
+alias symbol:cs43l22_dai snd_soc_cs43l22
+alias symbol:lib80211_crypt_quiescing lib80211
+alias symbol:release_firmware firmware_class
+alias symbol:cs43l22_snd_soc_get_volsw_2r snd_soc_cs43l22
+alias symbol:lib80211_crypt_deinit_entries lib80211
+alias symbol:soc_codec_dev_cs43l22 snd_soc_cs43l22
+alias symbol:lib80211_get_crypto_ops lib80211
+alias symbol:usb_gadget_unregister_driver lf1000_udc
+alias symbol:lib80211_crypt_delayed_deinit lib80211

@@ -1,0 +1,30 @@
+#!/bin/sh
+#
+# start alsa, i2c-ctl is from <lf sources/packages/
+
+case "$1" in
+	start)
+		i2c-ctl /dev/i2c-0 r 0x95 0x01 2 > /dev/null
+		if [ "$?" = "0" ]; then
+			modprobe snd-soc-didj-cs43l22
+			exit 0
+		fi
+		;;
+	stop)
+		if [ -e /sys/module/snd_soc_didj_cs43l22 ]; then
+			modprobe -r snd-soc-didj-cs43l22
+		elif [ -e snd-soc-didj-lfp100 ]; then
+			modprobe -r snd-soc-didj-lfp100
+		fi
+		;;
+	restart)
+		$0 stop
+		$0 start
+		;;
+	*)
+		echo "Usage: $0 {start|stop|restart}"
+		exit 1
+		;;
+esac
+
+exit 0

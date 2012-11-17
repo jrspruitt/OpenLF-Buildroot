@@ -1,0 +1,36 @@
+#!/bin/sh
+#
+# Start the network....
+#
+
+case "$1" in
+  start)
+ 	echo "Starting network..."
+
+	hostname `cat /etc/hostname`
+
+	ifconfig lo 127.0.0.1
+
+	if [ ! -d /tmp/avahi-autoipd ]; then
+	    rm -rf /tmp/avahi-autoipd
+	    mkdir /tmp/avahi-autoipd
+	    chown default.default /tmp/avahi-autoipd
+	fi
+
+	avahi-autoipd --daemon --force-bind usb0
+	;;
+  stop)
+	echo -n "Stopping network..."
+	avahi-autoipd -c && avahi-autoipd -k usb0
+	;;
+  restart|reload)
+	"$0" stop
+	"$0" start
+	;;
+  *)
+	echo "Usage: $0 {start|stop|restart}"
+	exit 1
+esac
+
+exit $?
+
