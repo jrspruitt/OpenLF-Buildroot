@@ -697,7 +697,6 @@ endif
 endmenu
 
 menu "OpenLF Packages"
-source "package/i2c-utils/Config.in"
 source "package/lfd/Config.in"
 endmenu
 

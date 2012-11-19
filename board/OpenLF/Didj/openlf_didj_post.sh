@@ -2,6 +2,8 @@
 TARGET=output/target
 BOARD_DIR=board/OpenLF/Didj
 RFS_FILES=$BOARD_DIR/files
+BULK_MNT=$TARGET/mnt/data
+SD_MNT=$TARGET/mnt/sd
 
 # Add board files to rfs
 if [ ! -e $RFS_FILES ]; then
@@ -15,10 +17,18 @@ fi
 for dfile in $(cat $BOARD_DIR/file_delete.list);
 do
     if [ -e $TARGET/$dfile ]; then
-        rm $TARGET/$dfile
+        rm -r $TARGET/$dfile
     fi
 done;
 
+# create mount points
+if [ ! -e $BULK_MNT ]; then
+	mkdir $BULK_MNT
+fi
+
+if [ ! -e $SD_MNT ]; then
+	mkdir $SD_MNT
+fi
 
 # Fix linuxrc/init name
 if [ -e $TARGET/linuxrc ]; then

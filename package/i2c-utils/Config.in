@@ -1,6 +1,0 @@
-config BR2_PACKAGE_I2C_UTILS
-        bool "i2c-utils"
-		default y
-        help
-          LeapFrog utility for initializing sound.
-		  Required for ALSA to work.
