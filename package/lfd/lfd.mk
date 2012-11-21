@@ -4,10 +4,9 @@
 #
 ############################################################################
 
-LFD_VERSION = 0.2
-LFD_SOURCE = lfd_v$(LFD_VERSION).tar.gz
-LFD_SITE = $(TOPDIR)/board/OpenLF/source
-LFD_SITE_METHOD = file
+LFD_VERSION = master
+LFD_SITE = git@github.com:jrspruitt/OpenLF-lfd.git
+LFD_SITE_METHOD = git
 LFD_INSTALL_STAGING = NO
 LFD_DEPENDENCIES = -lrt -lasound
 

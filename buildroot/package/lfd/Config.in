@@ -1,6 +1,0 @@
-config BR2_PACKAGE_LFD
-        bool "lfd"
-		default y
-        help
-          LeapFrog Daemon used for sound, backlight and battery.
-		  Required for ALSA to work.
