@@ -5,10 +5,10 @@
 ############################################################################
 
 LFD_VERSION = master
-LFD_SITE = git@github.com:jrspruitt/OpenLF-lfd.git
+LFD_SITE = https://github.com/jrspruitt/OpenLF-lfd.git 
 LFD_SITE_METHOD = git
 LFD_INSTALL_STAGING = NO
-LFD_DEPENDENCIES = -lrt -lasound
+LFD_DEPENDENCIES = -lrt alsa-lib
 
 define LFD_BUILD_CMDS
 	$(MAKE) CC="$(TARGET_CC)" -C $(@D)
